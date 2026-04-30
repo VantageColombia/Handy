@@ -19,6 +19,7 @@
     --text2: #4b5563;
     --shadow: 0 4px 32px rgba(0,51,160,0.10);
     --radius: 18px;
+    --green: #22c55e;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -33,11 +34,11 @@
   /* ─── NAVBAR ─── */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: var(--blue);
+    background: var(--white);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 24px;
     height: 62px;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.18);
+    box-shadow: 0 2px 20px rgba(165, 0, 0, 0.421);
   }
   .nav-logo {
     display: flex; align-items: center; gap: 10px;
@@ -54,13 +55,13 @@
     box-shadow: 0 2px 8px rgba(255, 255, 255, 0.4);
   }
   .nav-logo-img {
-    color: #ffffff;
+    color: #020000;
     font-size: 15px;
     font-weight: 800;
     line-height: 1.2;
   }
   .nav-logo-sub {
-    color: rgba(255,255,255,0.65);
+    color: rgba(0, 0, 0, 0.65);
     font-size: 11px;
     font-weight: 600;
   }
@@ -69,7 +70,7 @@
     list-style: none;
   }
   .nav-links a {
-    color: rgba(255,255,255,0.85);
+    color: rgba(34, 10, 10, 0.85);
     text-decoration: none;
     font-size: 13px;
     font-weight: 700;
@@ -79,10 +80,10 @@
   }
   .nav-links a:hover { background: rgba(255,255,255,0.12); color: #fff; }
   .nav-cta {
-    background: var(--red) !important;
+    background: var(--green) !important;
     color: #fff !important;
     border-radius: 8px !important;
-    box-shadow: 0 2px 8px rgba(227,30,38,0.3);
+    box-shadow: 0 2px 8px rgba(30, 33, 227, 0.3);
   }
   .nav-cta:hover { background: var(--red-dark) !important; }
   .hamburger {
@@ -96,7 +97,7 @@
 
   /* ─── HERO ─── */
   .hero {
-    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 60%, #1a4dbf 100%);
+    background: repeating-linear-gradient(135deg, #fe0505d9 0%, var(--blue) 50%, #ff0000a1 100%);
     position: relative;
     overflow: hidden;
     padding: 60px 24px 50px;
@@ -447,6 +448,25 @@
   .scroll-btn.left { left: 4px; }
   .scroll-btn.right { right: 4px; }
 
+  .contenedor-seccion {
+  position: relative; /* Importante para que el carro sepa dónde quedarse */
+  display: flex;      /* Para poner el texto y el carro lado a lado */
+  padding: 50px;
+  height: 200vh;      /* Alto para que veas el efecto al scrollear */
+}
+
+.carro-sticker {
+  position: -webkit-sticky; /* Soporte para Safari */
+  position: sticky;        /* ¡Aquí está el truco! */
+  top: 50px;               /* A qué distancia del borde superior se "pegará" */
+  align-self: flex-start;  /* Necesario para que el sticky funcione en Flexbox */
+  
+  right: 0;
+  width: 200px;            /* Tamaño fijo o % para que sea responsive */
+  height: auto;
+}
+
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
     .nav-links { display: none; }
@@ -524,10 +544,14 @@
 
 <!-- HERO -->
 <section class="hero" id="inicio">
+ 
   <div class="handy-tag">
+    
     <div class="handy-dot"></div>
+    
     Handy te atiende ahora
-  </div>
+  </div> 
+
   <div class="hero-badge">Consultora Oficial de Susuki</div>
   <h1>MANEJA TU<br><span>SUEÑO</span></h1>
   <p>Asesoría personalizada para tu próximo vehículo 🚗
@@ -610,7 +634,8 @@ Información clara, acompañamiento total y las mejores opciones para ti</p>
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="nav-logo-badge">
-        <div class="nav-logo-img" ><img style="width: auto; height: 40px; margin-top: 6px;" src="./img1.png" alt=""></div>
+        <div class="nav-logo-img" ><img style="width: auto; height: 40px; margin-top: 6px;" src="./img1.png" alt=""></div> 
+
       </div>
       <p style="margin-top:12px;">Consultora Oficial de Suzuki en Paloquemado, Bogotá. Vehículos nuevos y seminuevos con la mejor financiación y atención personalizada.</p>
     </div>
@@ -841,4 +866,3 @@ renderGrid();
 </script>
 </body>
 </html>
-
