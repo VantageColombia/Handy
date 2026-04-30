@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Handy Autos Suzuki | Paloquemado, Bogotá</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E31E26;
+    --red-dark: #b5151c;
+    --blue: #0033A0;
+    --blue-dark: #002178;
+    --blue-light: #1a4dbf;
+    --white: #fff;
+    --gray: #f5f6fa;
+    --gray2: #e8eaf2;
+    --text: #111827;
+    --text2: #4b5563;
+    --shadow: 0 4px 32px rgba(0,51,160,0.10);
+    --radius: 18px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--gray);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--blue);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+    height: 62px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.18);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo-badge {
+    background: var(--red);
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(227,30,38,0.4);
+  }
+  .nav-logo-text {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .nav-logo-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .nav-links {
+    display: flex; gap: 6px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 13px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+  .nav-cta {
+    background: var(--red) !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(227,30,38,0.3);
+  }
+  .nav-cta:hover { background: var(--red-dark) !important; }
+  .hamburger {
+    display: none;
+    flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2.5px;
+    background: #fff; border-radius: 2px; transition: 0.3s;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 60%, #1a4dbf 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 60px 24px 50px;
+    text-align: center;
+    min-height: 420px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><circle cx="30" cy="30" r="1.5" fill="rgba(255,255,255,0.06)"/></svg>') repeat;
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-size: 12px; font-weight: 800; letter-spacing: 1.5px;
+    padding: 5px 16px; border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 12px rgba(227,30,38,0.4);
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 8vw, 80px);
+    color: #fff;
+    line-height: 1;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--red); }
+  .hero p {
+    color: rgba(255,255,255,0.78);
+    font-size: 15px; font-weight: 600;
+    max-width: 480px; margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--red);
+    color: #fff; font-weight: 800; font-size: 14px;
+    padding: 12px 28px; border-radius: 12px;
+    border: none; cursor: pointer; text-decoration: none;
+    box-shadow: 0 4px 18px rgba(227,30,38,0.45);
+    transition: transform 0.18s, box-shadow 0.18s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(227,30,38,0.5); }
+  .btn-outline {
+    background: rgba(255,255,255,0.1);
+    color: #fff; font-weight: 800; font-size: 14px;
+    padding: 12px 28px; border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.35); cursor: pointer; text-decoration: none;
+    transition: background 0.18s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.18); }
+
+  /* ─── STATS BAR ─── */
+  .stats-bar {
+    background: var(--white);
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: 0;
+    box-shadow: var(--shadow);
+  }
+  .stat-item {
+    flex: 1; min-width: 120px; max-width: 200px;
+    text-align: center;
+    padding: 18px 16px;
+    border-right: 1px solid var(--gray2);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    color: var(--blue);
+    line-height: 1;
+  }
+  .stat-label { font-size: 11px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+  /* ─── CAROUSEL ─── */
+  .section-title-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 32px 24px 0;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px; letter-spacing: 1px; color: var(--blue);
+  }
+  .section-title span { color: var(--red); }
+  .see-all {
+    color: var(--blue); font-weight: 800; font-size: 13px;
+    text-decoration: none; border-bottom: 2px solid var(--blue);
+    padding-bottom: 1px;
+  }
+
+  .carousel-wrap {
+    position: relative;
+    max-width: 1200px; margin: 18px auto 0; padding: 0 24px;
+  }
+  .carousel {
+    display: flex; gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+  }
+  .carousel::-webkit-scrollbar { display: none; }
+  .car-card {
+    scroll-snap-align: start;
+    flex: 0 0 260px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 16px rgba(0,51,160,0.09);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .car-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0,51,160,0.17);
+  }
+  .car-card-badge {
+    position: absolute; top: 12px; left: 12px; z-index: 2;
+    background: var(--red);
+    color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 1px;
+    padding: 3px 10px; border-radius: 20px;
+    text-transform: uppercase;
+  }
+  .car-card-img {
+    width: 100%; height: 165px;
+    object-fit: cover;
+    background: var(--gray2);
+    display: block;
+  }
+  .car-card-img-placeholder {
+    width: 100%; height: 165px;
+    background: linear-gradient(135deg, #e8eaf2 0%, #d0d4e8 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+  }
+  .car-card-body { padding: 14px 16px 16px; }
+  .car-card-brand { font-size: 10px; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 1px; }
+  .car-card-name { font-size: 17px; font-weight: 900; color: var(--text); margin: 2px 0 6px; }
+  .car-card-specs {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;
+  }
+  .spec-chip {
+    background: var(--gray2); color: var(--text2);
+    font-size: 10px; font-weight: 700;
+    padding: 3px 9px; border-radius: 20px;
+  }
+  .car-card-price { font-size: 19px; font-weight: 900; color: var(--blue); }
+  .car-card-price span { font-size: 12px; font-weight: 700; color: var(--text2); }
+  .car-card-btn {
+    margin-top: 12px;
+    width: 100%; background: var(--blue); color: #fff;
+    font-size: 13px; font-weight: 800;
+    padding: 10px; border-radius: 10px; border: none; cursor: pointer;
+    transition: background 0.18s;
+  }
+  .car-card-btn:hover { background: var(--blue-dark); }
+
+  /* ─── ALL VEHICLES GRID ─── */
+  .vehicles-section {
+    max-width: 1200px; margin: 40px auto 0; padding: 0 24px;
+  }
+  .filter-bar {
+    display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 24px;
+  }
+  .filter-btn {
+    background: var(--white);
+    color: var(--text2); font-size: 12px; font-weight: 800;
+    padding: 8px 18px; border-radius: 20px;
+    border: 2px solid var(--gray2); cursor: pointer;
+    transition: all 0.18s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--blue); color: #fff; border-color: var(--blue);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  /* ─── MODAL ─── */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,40,0.55);
+    backdrop-filter: blur(4px);
+    align-items: center; justify-content: center;
+    padding: 16px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--white);
+    border-radius: 24px;
+    max-width: 500px; width: 100%;
+    max-height: 90vh; overflow-y: auto;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+    animation: modalIn 0.3s cubic-bezier(.175,.885,.32,1.275);
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: scale(0.88) translateY(30px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .modal-img {
+    width: 100%; height: 220px;
+    object-fit: cover;
+    border-radius: 24px 24px 0 0;
+  }
+  .modal-img-placeholder {
+    width: 100%; height: 220px;
+    background: linear-gradient(135deg, #dbe0f5 0%, #c1ccf0 100%);
+    border-radius: 24px 24px 0 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 80px;
+  }
+  .modal-body { padding: 24px; }
+  .modal-brand { font-size: 11px; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 1.5px; }
+  .modal-name { font-size: 28px; font-weight: 900; color: var(--text); margin: 4px 0 6px; }
+  .modal-price { font-size: 24px; font-weight: 900; color: var(--red); margin-bottom: 16px; }
+  .modal-specs-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;
+  }
+  .modal-spec {
+    background: var(--gray);
+    border-radius: 12px; padding: 12px 14px;
+  }
+  .modal-spec-label { font-size: 10px; font-weight: 800; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; }
+  .modal-spec-val { font-size: 14px; font-weight: 900; color: var(--text); margin-top: 2px; }
+  .modal-desc { font-size: 13px; color: var(--text2); line-height: 1.7; margin-bottom: 20px; }
+  .modal-wa-btn {
+    width: 100%;
+    background: #25D366; color: #fff;
+    font-size: 15px; font-weight: 900;
+    padding: 15px; border-radius: 14px; border: none; cursor: pointer;
+    box-shadow: 0 4px 18px rgba(37,211,102,0.35);
+    transition: transform 0.18s, box-shadow 0.18s;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .modal-wa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
+  .modal-close {
+    position: absolute; top: 16px; right: 16px;
+    background: rgba(255,255,255,0.95);
+    border: none; cursor: pointer;
+    width: 36px; height: 36px; border-radius: 50%;
+    font-size: 18px; font-weight: 900; color: var(--text);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    z-index: 10;
+    transition: background 0.18s;
+  }
+  .modal-close:hover { background: #fff; }
+  .modal-wrapper { position: relative; }
+
+  /* ─── INFO SECTION ─── */
+  .info-section {
+    max-width: 1200px; margin: 50px auto; padding: 0 24px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .info-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px 26px;
+    box-shadow: var(--shadow);
+  }
+  .info-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 1px;
+    color: var(--blue); margin-bottom: 10px;
+  }
+  .info-card p { font-size: 13px; color: var(--text2); line-height: 1.8; }
+  .info-card .highlight { color: var(--red); font-weight: 800; }
+
+  /* ─── BANNER ─── */
+  .promo-banner {
+    margin: 10px 24px 0;
+    max-width: calc(1200px - 0px);
+    margin-left: auto; margin-right: auto;
+    background: linear-gradient(90deg, var(--red) 0%, #ff4b54 100%);
+    border-radius: var(--radius);
+    padding: 22px 28px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+    gap: 16px;
+    box-shadow: 0 6px 28px rgba(227,30,38,0.3);
+  }
+  .promo-banner h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; letter-spacing: 1px; color: #fff;
+  }
+  .promo-banner p { font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 600; }
+  .promo-wa {
+    background: #fff; color: var(--red);
+    font-size: 14px; font-weight: 900;
+    padding: 12px 24px; border-radius: 12px; border: none; cursor: pointer;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transition: transform 0.18s;
+    white-space: nowrap;
+  }
+  .promo-wa:hover { transform: translateY(-2px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--blue-dark);
+    color: rgba(255,255,255,0.75);
+    padding: 36px 24px 24px;
+    margin-top: 60px;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px;
+  }
+  .footer-brand .nav-logo-badge { display: inline-block; margin-bottom: 12px; }
+  .footer-brand p { font-size: 12px; line-height: 1.8; }
+  .footer-col h4 { color: #fff; font-size: 13px; font-weight: 800; margin-bottom: 12px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 6px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.65); font-size: 12px; text-decoration: none; }
+  .footer-col ul li a:hover { color: #fff; }
+  .footer-bottom {
+    max-width: 1200px; margin: 28px auto 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 18px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .footer-bottom span { font-size: 11px; }
+
+  /* ─── SCROLL ARROWS ─── */
+  .scroll-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--white);
+    border: none; cursor: pointer;
+    width: 38px; height: 38px; border-radius: 50%;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 900; color: var(--blue);
+    z-index: 5; transition: background 0.18s, transform 0.18s;
+  }
+  .scroll-btn:hover { background: var(--blue); color: #fff; transform: translateY(-50%) scale(1.1); }
+  .scroll-btn.left { left: 4px; }
+  .scroll-btn.right { right: 4px; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 62px; left: 0; right: 0;
+      background: var(--blue);
+      padding: 16px 24px;
+      gap: 4px;
+    }
+    .hero { padding: 40px 16px 36px; min-height: 340px; }
+    .stats-bar { gap: 0; }
+    .stat-item { min-width: 90px; padding: 14px 10px; }
+    .stat-num { font-size: 24px; }
+    .car-card { flex: 0 0 220px; }
+    .info-section { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 20px; }
+    .promo-banner { padding: 18px 20px; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+    .modal-specs-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    nav { padding: 0 16px; }
+    .hero h1 { font-size: 38px; }
+    .car-card { flex: 0 0 190px; }
+    .car-card-img, .car-card-img-placeholder { height: 130px; }
+    .grid { grid-template-columns: 1fr 1fr; }
+    .modal-specs-grid { grid-template-columns: 1fr 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+
+  /* ─── HANDY TAG ─── */
+  .handy-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.13);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: #fff; font-size: 12px; font-weight: 800;
+    padding: 6px 16px; border-radius: 20px; margin-bottom: 16px;
+  }
+  .handy-dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+
+  /* ─── 3D card effect ─── */
+  .car-card { perspective: 1000px; }
+  .car-card-inner { transition: transform 0.4s; transform-style: preserve-3d; }
+  .car-card:hover .car-card-inner { transform: rotateY(3deg) rotateX(-2deg); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div>
+      <div class="nav-logo-badge">HANDY</div>
+    </div>
+    <div>
+      <div class="nav-logo-text">Autos Suzuki</div>
+      <div class="nav-logo-sub">Paloquemado · Bogotá</div>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#vehiculos">Vehículos</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="https://wa.me/573204820502?text=Hola+Handy!+Quisiera+información+sobre+los+vehículos." target="_blank" class="nav-cta">WhatsApp</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="handy-tag">
+    <div class="handy-dot"></div>
+    Handy te atiende ahora
+  </div>
+  <div class="hero-badge">Concesionario Suzuki Oficial</div>
+  <h1>MANEJA TU<br><span>SUEÑO</span></h1>
+  <p>Los mejores vehículos Suzuki al mejor precio. Financiación, seguro y entrega inmediata en Paloquemado, Bogotá.</p>
+  <div class="hero-btns">
+    <a href="#vehiculos" class="btn-primary">Ver Vehículos</a>
+    <a href="https://wa.me/573204820502?text=Hola+Handy!+Quisiera+asesoría+sobre+un+vehículo+Suzuki." target="_blank" class="btn-outline">Hablar con Handy</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">+80</div><div class="stat-label">Vehículos</div></div>
+  <div class="stat-item"><div class="stat-num">+500</div><div class="stat-label">Clientes felices</div></div>
+  <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Garantía</div></div>
+  <div class="stat-item"><div class="stat-num">0%</div><div class="stat-label">Inicial desde</div></div>
+</div>
+
+<!-- PROMO BANNER -->
+<div class="promo-banner" style="margin-top:32px;">
+  <div>
+    <h2>¡Financia tu Suzuki hoy!</h2>
+    <p>Cuotas desde $890.000/mes · Aprobación en 24 horas · Sin codeudor</p>
+  </div>
+  <a href="https://wa.me/573204820502?text=Hola+Handy!+Quiero+información+sobre+financiación+de+vehículos+Suzuki." target="_blank" class="promo-wa">
+    Consultar ahora
+  </a>
+</div>
+
+<!-- CAROUSEL -->
+<div class="section-title-row" style="margin-top:40px;">
+  <div class="section-title">Destacados <span>del Mes</span></div>
+  <a href="#vehiculos" class="see-all">Ver todos →</a>
+</div>
+<div class="carousel-wrap">
+  <button class="scroll-btn left" onclick="scrollCarousel(-1)">&#8592;</button>
+  <div class="carousel" id="mainCarousel"></div>
+  <button class="scroll-btn right" onclick="scrollCarousel(1)">&#8594;</button>
+</div>
+
+<!-- VEHICLES GRID -->
+<div class="vehicles-section" id="vehiculos">
+  <div class="section-title">Todos los <span style="color:var(--red)">Vehículos</span></div>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterVehicles('all', this)">Todos</button>
+    <button class="filter-btn" onclick="filterVehicles('suv', this)">SUV</button>
+    <button class="filter-btn" onclick="filterVehicles('sedan', this)">Sedán</button>
+    <button class="filter-btn" onclick="filterVehicles('hatchback', this)">Hatchback</button>
+    <button class="filter-btn" onclick="filterVehicles('pickup', this)">Pickup</button>
+  </div>
+  <div class="grid" id="vehiclesGrid"></div>
+</div>
+
+<!-- INFO SECTION -->
+<div class="info-section" id="nosotros">
+  <div class="info-card">
+    <div class="info-card-title">¿Dónde Encontrarnos?</div>
+    <p>
+      Estamos ubicados en <span class="highlight">Paloquemado, Bogotá</span>, uno de los sectores automotrices más importantes de la ciudad.<br><br>
+      Atención: <span class="highlight">Lunes – Sábado · 8:00am – 6:00pm</span><br>
+      WhatsApp: <span class="highlight">320 482 0502</span><br><br>
+      Tu asesora personal <span class="highlight">Handy</span> te atenderá con toda la información que necesitas para tomar la mejor decisión.
+    </p>
+  </div>
+  <div class="info-card">
+    <div class="info-card-title">¿Por qué Elegirnos?</div>
+    <p>
+      ✔ <span class="highlight">Financiación flexible</span> desde 0% de inicial<br>
+      ✔ <span class="highlight">Garantía</span> de fábrica en todos los vehículos<br>
+      ✔ <span class="highlight">Repuestos originales</span> Suzuki disponibles<br>
+      ✔ <span class="highlight">Trámites incluidos</span> sin costo adicional<br>
+      ✔ Más de <span class="highlight">10 años</span> de experiencia en el sector<br>
+      ✔ Asesoría personalizada con <span class="highlight">Handy</span>
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo-badge">HANDY AUTOS</div>
+      <p style="margin-top:12px;">Concesionario Suzuki en Paloquemado, Bogotá. Vehículos nuevos y seminuevos con la mejor financiación y atención personalizada.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Vehículos</h4>
+      <ul>
+        <li><a href="#">Suzuki Swift</a></li>
+        <li><a href="#">Suzuki Vitara</a></li>
+        <li><a href="#">Suzuki Jimny</a></li>
+        <li><a href="#">Suzuki Dzire</a></li>
+        <li><a href="#">Suzuki S-Presso</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="https://wa.me/573204820502" target="_blank">WhatsApp: 320 482 0502</a></li>
+        <li><a href="#">Paloquemado, Bogotá</a></li>
+        <li><a href="#">Lun–Sáb: 8am–6pm</a></li>
+        <li><a href="#">Asesora: Handy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Handy Autos Suzuki · Paloquemado, Bogotá</span>
+    <span>Todos los precios incluyen IVA · Sujeto a disponibilidad</span>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-wrapper">
+    <div class="modal" id="modal">
+      <button class="modal-close" onclick="closeModalBtn()">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PHONE = '573204820502';
+
+const vehicles = [
+  {
+    id: 1, name: 'Swift', brand: 'Suzuki',
+    category: 'hatchback',
+    price: '$62.990.000',
+    badge: 'Más vendido',
+    img: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&q=80',
+    year: '2024', engine: '1.2L', transmission: 'CVT', fuel: 'Gasolina', seats: '5',
+    desc: 'El Suzuki Swift es el compañero ideal para la ciudad. Económico, ágil y con tecnología de última generación. Perfecto para movilizarte en Bogotá con estilo y eficiencia.'
+  },
+  {
+    id: 2, name: 'Vitara', brand: 'Suzuki',
+    category: 'suv',
+    price: '$108.990.000',
+    badge: 'Nuevo',
+    img: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80',
+    year: '2024', engine: '1.4T', transmission: 'Automático', fuel: 'Gasolina', seats: '5',
+    desc: 'La Suzuki Vitara combina diseño europeo con capacidad todoterreno. Turbo de alto rendimiento, tracción 4WD y un interior premium que deleita a cada kilómetro.'
+  },
+  {
+    id: 3, name: 'Jimny', brand: 'Suzuki',
+    category: 'suv',
+    price: '$134.500.000',
+    badge: 'Edición especial',
+    img: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80',
+    year: '2024', engine: '1.5L', transmission: 'Manual 5V', fuel: 'Gasolina', seats: '4',
+    desc: 'El legendario Jimny vuelve con todo. Diseño retro, capacidad 4x4 profesional y construcción robusta para los que buscan aventura sin límites.'
+  },
+  {
+    id: 4, name: 'Dzire', brand: 'Suzuki',
+    category: 'sedan',
+    price: '$74.990.000',
+    badge: 'Popular',
+    img: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&q=80',
+    year: '2024', engine: '1.2L', transmission: 'AGS', fuel: 'Gasolina', seats: '5',
+    desc: 'El Suzuki Dzire es el sedán más inteligente del mercado. Bajo consumo de combustible, amplio maletero y tecnología moderna para el conductor exigente.'
+  },
+  {
+    id: 5, name: 'S-Presso', brand: 'Suzuki',
+    category: 'hatchback',
+    price: '$49.990.000',
+    badge: 'Mejor precio',
+    img: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80',
+    year: '2024', engine: '1.0L', transmission: 'Manual 5V', fuel: 'Gasolina', seats: '5',
+    desc: 'El S-Presso tiene estilo SUV en un formato compacto. Ideal para jóvenes y urbanos que quieren diferenciarse sin sacrificar economía ni funcionalidad.'
+  },
+  {
+    id: 6, name: 'Ertiga', brand: 'Suzuki',
+    category: 'sedan',
+    price: '$97.500.000',
+    badge: 'Familiar',
+    img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80',
+    year: '2024', engine: '1.5L', transmission: 'Automático', fuel: 'Gasolina', seats: '7',
+    desc: 'La Ertiga es la miniván familiar de Suzuki. Con 7 puestos, amplio espacio de carga y bajo consumo, es perfecta para toda la familia en cada aventura.'
+  },
+  {
+    id: 7, name: 'Grand Vitara', brand: 'Suzuki',
+    category: 'suv',
+    price: '$145.000.000',
+    badge: 'Premium',
+    img: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80',
+    year: '2024', engine: '2.4L', transmission: 'Automático', fuel: 'Gasolina', seats: '5',
+    desc: 'La Grand Vitara combina lujo, potencia y versatilidad todoterreno. El SUV de referencia de Suzuki con las mejores especificaciones del segmento.'
+  },
+  {
+    id: 8, name: 'Carry', brand: 'Suzuki',
+    category: 'pickup',
+    price: '$56.500.000',
+    badge: 'Trabajo duro',
+    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+    year: '2024', engine: '1.5L', transmission: 'Manual 5V', fuel: 'Gasolina', seats: '2',
+    desc: 'La Suzuki Carry es la pick-up de trabajo más confiable. Ideal para transporte de carga liviana, con bajo costo de mantenimiento y gran durabilidad.'
+  }
+];
+
+// Render carousel
+function renderCarousel() {
+  const carousel = document.getElementById('mainCarousel');
+  const featured = vehicles.slice(0, 6);
+  carousel.innerHTML = featured.map(v => `
+    <div class="car-card" onclick="openModal(${v.id})">
+      <div class="car-card-badge">${v.badge}</div>
+      <img src="${v.img}" alt="${v.name}" class="car-card-img" onerror="this.parentNode.innerHTML='<div class=\\'car-card-img-placeholder\\'>🚗</div>'">
+      <div class="car-card-body">
+        <div class="car-card-brand">${v.brand}</div>
+        <div class="car-card-name">${v.name}</div>
+        <div class="car-card-specs">
+          <span class="spec-chip">${v.year}</span>
+          <span class="spec-chip">${v.engine}</span>
+          <span class="spec-chip">${v.transmission}</span>
+        </div>
+        <div class="car-card-price">${v.price} <span>COP</span></div>
+        <button class="car-card-btn" onclick="event.stopPropagation();openModal(${v.id})">Ver detalles</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Render grid
+function renderGrid(filter = 'all') {
+  const grid = document.getElementById('vehiclesGrid');
+  const list = filter === 'all' ? vehicles : vehicles.filter(v => v.category === filter);
+  grid.innerHTML = list.map(v => `
+    <div class="car-card" onclick="openModal(${v.id})" data-cat="${v.category}">
+      <div class="car-card-badge">${v.badge}</div>
+      <img src="${v.img}" alt="${v.name}" class="car-card-img" onerror="this.parentNode.innerHTML='<div class=\\'car-card-img-placeholder\\'>🚗</div>'">
+      <div class="car-card-body">
+        <div class="car-card-brand">${v.brand}</div>
+        <div class="car-card-name">${v.name}</div>
+        <div class="car-card-specs">
+          <span class="spec-chip">${v.year}</span>
+          <span class="spec-chip">${v.engine}</span>
+          <span class="spec-chip">${v.transmission}</span>
+        </div>
+        <div class="car-card-price">${v.price} <span>COP</span></div>
+        <button class="car-card-btn" onclick="event.stopPropagation();openModal(${v.id})">Ver detalles</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterVehicles(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid(cat);
+}
+
+// Modal
+function openModal(id) {
+  const v = vehicles.find(x => x.id === id);
+  if (!v) return;
+  const msg = encodeURIComponent(`Hola Handy quisiera más asesoría sobre el vehículo ${v.brand} ${v.name}`);
+  document.getElementById('modalContent').innerHTML = `
+    <img src="${v.img}" alt="${v.name}" class="modal-img" onerror="this.style.display='none'">
+    <div class="modal-body">
+      <div class="modal-brand">${v.brand} · ${v.year}</div>
+      <div class="modal-name">${v.name}</div>
+      <div class="modal-price">${v.price} COP</div>
+      <div class="modal-specs-grid">
+        <div class="modal-spec"><div class="modal-spec-label">Motor</div><div class="modal-spec-val">${v.engine}</div></div>
+        <div class="modal-spec"><div class="modal-spec-label">Transmisión</div><div class="modal-spec-val">${v.transmission}</div></div>
+        <div class="modal-spec"><div class="modal-spec-label">Combustible</div><div class="modal-spec-val">${v.fuel}</div></div>
+        <div class="modal-spec"><div class="modal-spec-label">Puestos</div><div class="modal-spec-val">${v.seats}</div></div>
+      </div>
+      <p class="modal-desc">${v.desc}</p>
+      <button class="modal-wa-btn" onclick="goWhatsApp(${v.id})">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar con Handy
+      </button>
+    </div>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // Auto redirect after 1.2s
+  setTimeout(() => { goWhatsApp(id); }, 1200);
+}
+
+function goWhatsApp(id) {
+  const v = vehicles.find(x => x.id === id);
+  if (!v) return;
+  const msg = encodeURIComponent(`Hola Handy quisiera más asesoría sobre el vehículo ${v.brand} ${v.name}`);
+  window.open(`https://wa.me/${PHONE}?text=${msg}`, '_blank');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModalBtn();
+}
+function closeModalBtn() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function scrollCarousel(dir) {
+  const c = document.getElementById('mainCarousel');
+  c.scrollBy({ left: dir * 280, behavior: 'smooth' });
+}
+
+// Hamburger
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+// Init
+renderCarousel();
+renderGrid();
+</script>
+</body>
+</html>
