@@ -1,866 +1,628 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HandCar | Vehiculos de la mas alta calidad | SUZUKI </title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<title>Autohand Suzuki | Paloquemado, Bogotá</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --red: #E31E26;
-    --red-dark: #b5151c;
-    --blue: #0033A0;
-    --blue-dark: #002178;
-    --blue-light: #1a4dbf;
-    --white: #fff;
-    --gray: #f5f6fa;
-    --gray2: #e8eaf2;
-    --text: #111827;
-    --text2: #4b5563;
-    --shadow: 0 4px 32px rgba(0,51,160,0.10);
-    --radius: 18px;
-    --green: #22c55e;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--gray);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* ─── NAVBAR ─── */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--white);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 24px;
-    height: 62px;
-    box-shadow: 0 2px 20px rgba(165, 0, 0, 0.421);
-  }
-  .nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    text-decoration: none;
-  }
-  .nav-logo-badge {
-    background: var(--white);
-    color: #fff;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 2px;
-    padding: 4px 14px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.4);
-  }
-  .nav-logo-img {
-    color: #020000;
-    font-size: 15px;
-    font-weight: 800;
-    line-height: 1.2;
-  }
-  .nav-logo-sub {
-    color: rgba(0, 0, 0, 0.65);
-    font-size: 11px;
-    font-weight: 600;
-  }
-  .nav-links {
-    display: flex; gap: 6px;
-    list-style: none;
-  }
-  .nav-links a {
-    color: rgba(34, 10, 10, 0.85);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 6px 13px;
-    border-radius: 8px;
-    transition: background 0.2s, color 0.2s;
-  }
-  .nav-links a:hover { background: rgba(255,255,255,0.12); color: #fff; }
-  .nav-cta {
-    background: var(--green) !important;
-    color: #fff !important;
-    border-radius: 8px !important;
-    box-shadow: 0 2px 8px rgba(30, 33, 227, 0.3);
-  }
-  .nav-cta:hover { background: var(--red-dark) !important; }
-  .hamburger {
-    display: none;
-    flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
-  }
-  .hamburger span {
-    display: block; width: 24px; height: 2.5px;
-    background: #fff; border-radius: 2px; transition: 0.3s;
-  }
-
-  /* ─── HERO ─── */
-  .hero {
-    background: repeating-linear-gradient(135deg, #fe0505d9 0%, var(--blue) 50%, #ff0000a1 100%);
-    position: relative;
-    overflow: hidden;
-    padding: 60px 24px 50px;
-    text-align: center;
-    min-height: 420px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><circle cx="30" cy="30" r="1.5" fill="rgba(255,255,255,0.06)"/></svg>') repeat;
-    pointer-events: none;
-  }
-  .hero-badge {
-    display: inline-block;
-    background: var(--red);
-    color: #fff;
-    font-size: 12px; font-weight: 800; letter-spacing: 1.5px;
-    padding: 5px 16px; border-radius: 20px;
-    margin-bottom: 16px;
-    text-transform: uppercase;
-    box-shadow: 0 2px 12px rgba(227,30,38,0.4);
-  }
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(42px, 8vw, 80px);
-    color: #fff;
-    line-height: 1;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-  }
-  .hero h1 span { color: var(--red); }
-  .hero p {
-    color: rgba(255,255,255,0.78);
-    font-size: 15px; font-weight: 600;
-    max-width: 480px; margin: 0 auto 28px;
-    line-height: 1.6;
-  }
-  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--red);
-    color: #fff; font-weight: 800; font-size: 14px;
-    padding: 12px 28px; border-radius: 12px;
-    border: none; cursor: pointer; text-decoration: none;
-    box-shadow: 0 4px 18px rgba(227,30,38,0.45);
-    transition: transform 0.18s, box-shadow 0.18s;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(227,30,38,0.5); }
-  .btn-outline {
-    background: rgba(255,255,255,0.1);
-    color: #fff; font-weight: 800; font-size: 14px;
-    padding: 12px 28px; border-radius: 12px;
-    border: 2px solid rgba(255,255,255,0.35); cursor: pointer; text-decoration: none;
-    transition: background 0.18s;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn-outline:hover { background: rgba(255,255,255,0.18); }
-
-  /* ─── STATS BAR ─── */
-  .stats-bar {
-    background: var(--white);
-    display: flex; justify-content: center; flex-wrap: wrap;
-    gap: 0;
-    box-shadow: var(--shadow);
-  }
-  .stat-item {
-    flex: 1; min-width: 120px; max-width: 200px;
-    text-align: center;
-    padding: 18px 16px;
-    border-right: 1px solid var(--gray2);
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px;
-    color: var(--blue);
-    line-height: 1;
-  }
-  .stat-label { font-size: 11px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
-
-  /* ─── CAROUSEL ─── */
-  .section-title-row {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 32px 24px 0;
-    max-width: 1200px; margin: 0 auto;
-  }
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px; letter-spacing: 1px; color: var(--blue);
-  }
-  .section-title span { color: var(--red); }
-  .see-all {
-    color: var(--blue); font-weight: 800; font-size: 13px;
-    text-decoration: none; border-bottom: 2px solid var(--blue);
-    padding-bottom: 1px;
-  }
-
-  .carousel-wrap {
-    position: relative;
-    max-width: 1200px; margin: 18px auto 0; padding: 0 24px;
-  }
-  .carousel {
-    display: flex; gap: 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 8px;
-  }
-  .carousel::-webkit-scrollbar { display: none; }
-  .car-card {
-    scroll-snap-align: start;
-    flex: 0 0 260px;
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: 0 2px 16px rgba(0,51,160,0.09);
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-  }
-  .car-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 12px 40px rgba(0,51,160,0.17);
-  }
-  .car-card-badge {
-    position: absolute; top: 12px; left: 12px; z-index: 2;
-    background: var(--red);
-    color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 1px;
-    padding: 3px 10px; border-radius: 20px;
-    text-transform: uppercase;
-  }
-  .car-card-img {
-    width: 100%; height: 165px;
-    object-fit: cover;
-    background: var(--gray2);
-    display: block;
-  }
-  .car-card-img-placeholder {
-    width: 100%; height: 165px;
-    background: linear-gradient(135deg, #e8eaf2 0%, #d0d4e8 100%);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 48px;
-  }
-  .car-card-body { padding: 14px 16px 16px; }
-  .car-card-brand { font-size: 10px; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 1px; }
-  .car-card-name { font-size: 17px; font-weight: 900; color: var(--text); margin: 2px 0 6px; }
-  .car-card-specs {
-    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;
-  }
-  .spec-chip {
-    background: var(--gray2); color: var(--text2);
-    font-size: 10px; font-weight: 700;
-    padding: 3px 9px; border-radius: 20px;
-  }
-  .car-card-price { font-size: 19px; font-weight: 900; color: var(--blue); }
-  .car-card-price span { font-size: 12px; font-weight: 700; color: var(--text2); }
-  .car-card-btn {
-    margin-top: 12px;
-    width: 100%; background: var(--blue); color: #fff;
-    font-size: 13px; font-weight: 800;
-    padding: 10px; border-radius: 10px; border: none; cursor: pointer;
-    transition: background 0.18s;
-  }
-  .car-card-btn:hover { background: var(--blue-dark); }
-
-  /* ─── ALL VEHICLES GRID ─── */
-  .vehicles-section {
-    max-width: 1200px; margin: 40px auto 0; padding: 0 24px;
-  }
-  .filter-bar {
-    display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 24px;
-  }
-  .filter-btn {
-    background: var(--white);
-    color: var(--text2); font-size: 12px; font-weight: 800;
-    padding: 8px 18px; border-radius: 20px;
-    border: 2px solid var(--gray2); cursor: pointer;
-    transition: all 0.18s;
-  }
-  .filter-btn.active, .filter-btn:hover {
-    background: var(--blue); color: #fff; border-color: var(--blue);
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
-  }
-
-  /* ─── MODAL ─── */
-  .modal-overlay {
-    display: none;
-    position: fixed; inset: 0; z-index: 200;
-    background: rgba(0,0,40,0.55);
-    backdrop-filter: blur(4px);
-    align-items: center; justify-content: center;
-    padding: 16px;
-  }
-  .modal-overlay.open { display: flex; }
-  .modal {
-    background: var(--white);
-    border-radius: 24px;
-    max-width: 500px; width: 100%;
-    max-height: 90vh; overflow-y: auto;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.25);
-    animation: modalIn 0.3s cubic-bezier(.175,.885,.32,1.275);
-  }
-  @keyframes modalIn {
-    from { opacity: 0; transform: scale(0.88) translateY(30px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
-  }
-  .modal-img {
-    width: 100%; height: 220px;
-    object-fit: cover;
-    border-radius: 24px 24px 0 0;
-  }
-  .modal-img-placeholder {
-    width: 100%; height: 220px;
-    background: linear-gradient(135deg, #dbe0f5 0%, #c1ccf0 100%);
-    border-radius: 24px 24px 0 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 80px;
-  }
-  .modal-body { padding: 24px; }
-  .modal-brand { font-size: 11px; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 1.5px; }
-  .modal-name { font-size: 28px; font-weight: 900; color: var(--text); margin: 4px 0 6px; }
-  .modal-price { font-size: 24px; font-weight: 900; color: var(--red); margin-bottom: 16px; }
-  .modal-specs-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;
-  }
-  .modal-spec {
-    background: var(--gray);
-    border-radius: 12px; padding: 12px 14px;
-  }
-  .modal-spec-label { font-size: 10px; font-weight: 800; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; }
-  .modal-spec-val { font-size: 14px; font-weight: 900; color: var(--text); margin-top: 2px; }
-  .modal-desc { font-size: 13px; color: var(--text2); line-height: 1.7; margin-bottom: 20px; }
-  .modal-wa-btn {
-    width: 100%;
-    background: #25D366; color: #fff;
-    font-size: 15px; font-weight: 900;
-    padding: 15px; border-radius: 14px; border: none; cursor: pointer;
-    box-shadow: 0 4px 18px rgba(37,211,102,0.35);
-    transition: transform 0.18s, box-shadow 0.18s;
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-  }
-  .modal-wa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
-  .modal-close {
-    position: absolute; top: 16px; right: 16px;
-    background: rgba(255,255,255,0.95);
-    border: none; cursor: pointer;
-    width: 36px; height: 36px; border-radius: 50%;
-    font-size: 18px; font-weight: 900; color: var(--text);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-    z-index: 10;
-    transition: background 0.18s;
-  }
-  .modal-close:hover { background: #fff; }
-  .modal-wrapper { position: relative; }
-
-  /* ─── INFO SECTION ─── */
-  .info-section {
-    max-width: 1200px; margin: 50px auto; padding: 0 24px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-  }
-  .info-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 28px 26px;
-    box-shadow: var(--shadow);
-  }
-  .info-card-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px; letter-spacing: 1px;
-    color: var(--blue); margin-bottom: 10px;
-  }
-  .info-card p { font-size: 13px; color: var(--text2); line-height: 1.8; }
-  .info-card .highlight { color: var(--red); font-weight: 800; }
-
-  /* ─── BANNER ─── */
-  .promo-banner {
-    margin: 10px 24px 0;
-    max-width: calc(1200px - 0px);
-    margin-left: auto; margin-right: auto;
-    background: linear-gradient(90deg, var(--red) 0%, #ff4b54 100%);
-    border-radius: var(--radius);
-    padding: 22px 28px;
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
-    gap: 16px;
-    box-shadow: 0 6px 28px rgba(227,30,38,0.3);
-  }
-  .promo-banner h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px; letter-spacing: 1px; color: #fff;
-  }
-  .promo-banner p { font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 600; }
-  .promo-wa {
-    background: #fff; color: var(--red);
-    font-size: 14px; font-weight: 900;
-    padding: 12px 24px; border-radius: 12px; border: none; cursor: pointer;
-    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    transition: transform 0.18s;
-    white-space: nowrap;
-  }
-  .promo-wa:hover { transform: translateY(-2px); }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--blue-dark);
-    color: rgba(255,255,255,0.75);
-    padding: 36px 24px 24px;
-    margin-top: 60px;
-  }
-  .footer-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px;
-  }
-  .footer-brand .nav-logo-badge { display: inline-block; margin-bottom: 12px; }
-  .footer-brand p { font-size: 12px; line-height: 1.8; }
-  .footer-col h4 { color: #fff; font-size: 13px; font-weight: 800; margin-bottom: 12px; }
-  .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 6px; }
-  .footer-col ul li a { color: rgba(255,255,255,0.65); font-size: 12px; text-decoration: none; }
-  .footer-col ul li a:hover { color: #fff; }
-  .footer-bottom {
-    max-width: 1200px; margin: 28px auto 0;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 18px;
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
-  }
-  .footer-bottom span { font-size: 11px; }
-
-  /* ─── SCROLL ARROWS ─── */
-  .scroll-btn {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    background: var(--white);
-    border: none; cursor: pointer;
-    width: 38px; height: 38px; border-radius: 50%;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; font-weight: 900; color: var(--blue);
-    z-index: 5; transition: background 0.18s, transform 0.18s;
-  }
-  .scroll-btn:hover { background: var(--blue); color: #fff; transform: translateY(-50%) scale(1.1); }
-  .scroll-btn.left { left: 4px; }
-  .scroll-btn.right { right: 4px; }
-
-  .contenedor-seccion {
-  position: relative; /* Importante para que el carro sepa dónde quedarse */
-  display: flex;      /* Para poner el texto y el carro lado a lado */
-  padding: 50px;
-  height: 200vh;      /* Alto para que veas el efecto al scrollear */
+:root{
+  --red:#E31E26;--red-h:#c41920;
+  --blue:#00316E;--blue-h:#00316E;
+  --white:#fff;--off:#f8f9fc;
+  --g100:#f1f3f8;--g200:#e2e6f0;--g400:#9aa3b8;--g600:#5c657a;
+  --text:#0f1523;
+  --sh:0 4px 20px rgba(0,51,160,.10);
+  --r:16px;
 }
-
-.carro-sticker {
-  position: -webkit-sticky; /* Soporte para Safari */
-  position: sticky;        /* ¡Aquí está el truco! */
-  top: 50px;               /* A qué distancia del borde superior se "pegará" */
-  align-self: flex-start;  /* Necesario para que el sticky funcione en Flexbox */
-  
-  right: 0;
-  width: 200px;            /* Tamaño fijo o % para que sea responsive */
-  height: auto;
+[data-theme="dark"]{
+  --off:#0f1523;--g100:#1a2035;--g200:#232d46;--g400:#5c657a;--g600:#9aa3b8;
+  --text:#f0f2fa;--white:#1a2035;
+  --sh:0 4px 20px rgba(0,0,0,.3);
 }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(--text);transition:background .3s,color .3s;overflow-x:hidden;}
 
+/* ── POPUP ── */
+.popup-overlay{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.75);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;padding:16px;
+  animation:fadeIn .4s ease;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.popup-box{
+  position:relative;max-width:680px;width:100%;
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.5);
+  animation:popIn .5s cubic-bezier(.175,.885,.32,1.275);
+}
+@keyframes popIn{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:scale(1)}}
+.popup-box img{width:100%;display:block;max-height:80vh;object-fit:cover;}
+.popup-close{
+  position:absolute;top:12px;right:12px;
+  background:var(--red);color:#fff;border:none;cursor:pointer;
+  width:38px;height:38px;border-radius:50%;font-size:18px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.3);z-index:10;transition:background .18s;
+}
+.popup-close:hover{background:var(--red-h);}
+.popup-timer{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(0,0,0,.6);color:#fff;font-size:13px;font-weight:700;
+  text-align:center;padding:10px;
+}
+.popup-timer span{color:#FFD700;}
+.popup-bar{
+  height:4px;background:var(--red);
+  animation:shrink 10s linear forwards;
+  transform-origin:left;
+}
+@keyframes shrink{from{transform:scaleX(1)}to{transform:scaleX(0)}}
 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    .nav-links.open {
-      display: flex; flex-direction: column;
-      position: absolute; top: 62px; left: 0; right: 0;
-      background: var(--blue);
-      padding: 16px 24px;
-      gap: 4px;
-    }
-    .hero { padding: 40px 16px 36px; min-height: 340px; }
-    .stats-bar { gap: 0; }
-    .stat-item { min-width: 90px; padding: 14px 10px; }
-    .stat-num { font-size: 24px; }
-    .car-card { flex: 0 0 220px; }
-    .info-section { grid-template-columns: 1fr; }
-    .footer-inner { grid-template-columns: 1fr; gap: 20px; }
-    .promo-banner { padding: 18px 20px; }
-    .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
-    .modal-specs-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 480px) {
-    nav { padding: 0 16px; }
-    .hero h1 { font-size: 38px; }
-    .car-card { flex: 0 0 190px; }
-    .car-card-img, .car-card-img-placeholder { height: 130px; }
-    .grid { grid-template-columns: 1fr 1fr; }
-    .modal-specs-grid { grid-template-columns: 1fr 1fr; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-  }
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:var(--white);border-bottom:1px solid var(--g200);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;height:68px;box-shadow:0 1px 4px rgba(0,51,160,.06);
+  transition:background .3s,border-color .3s;
+}
+.nav-logo img{height:38px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+.nav-links a{color:var(--g600);font-size:13.5px;font-weight:600;text-decoration:none;padding:7px 14px;border-radius:8px;transition:background .18s,color .18s;}
+.nav-links a:hover{background:var(--g100);color:var(--text);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.theme-btn{background:var(--g100);border:none;cursor:pointer;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--text);transition:background .18s;}
+.theme-btn:hover{background:var(--g200);}
+.nav-wa{background:var(--red);color:#fff;font-size:13px;font-weight:700;padding:9px 20px;border-radius:10px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 2px 10px rgba(227,30,38,.3);transition:background .18s,transform .18s;white-space:nowrap;}
+.nav-wa:hover{background:var(--red-h);transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
 
-  /* ─── HANDY TAG ─── */
-  .handy-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,0.13);
-    border: 1.5px solid rgba(255,255,255,0.25);
-    color: #fff; font-size: 12px; font-weight: 800;
-    padding: 6px 16px; border-radius: 20px; margin-bottom: 16px;
-  }
-  .handy-dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; animation: pulse 1.5s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--blue) 0%,#366297 60%,#d01111 100%);padding:80px 28px 70px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 100%,rgba(227,30,38,.18) 0%,transparent 70%);pointer-events:none;}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:12px;font-weight:700;letter-spacing:.5px;padding:6px 16px;border-radius:20px;margin-bottom:22px;text-transform:uppercase;}
+.hero-dot{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:blink 1.6s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(38px,7vw,72px);color:#fff;line-height:1.05;letter-spacing:-1px;margin-bottom:14px;}
+.hero h1 em{color:var(--red);font-style:normal;}
+.hero p{color:rgba(255,255,255,.75);font-size:15.5px;font-weight:500;max-width:500px;margin:0 auto 32px;line-height:1.65;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--blue);font-weight:700;font-size:14px;padding:13px 28px;border-radius:12px;border:none;cursor:pointer;text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,.18);transition:transform .18s;}
+.btn-white:hover{transform:translateY(-2px);}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;font-weight:700;font-size:14px;padding:13px 28px;border-radius:12px;border:1.5px solid rgba(255,255,255,.3);cursor:pointer;text-decoration:none;transition:background .18s;}
+.btn-ghost:hover{background:rgba(255,255,255,.18);}
 
-  /* ─── 3D card effect ─── */
-  .car-card { perspective: 1000px; }
-  .car-card-inner { transition: transform 0.4s; transform-style: preserve-3d; }
-  .car-card:hover .car-card-inner { transform: rotateY(3deg) rotateX(-2deg); }
+/* ── STATS ── */
+.stats{background:var(--white);display:flex;justify-content:center;flex-wrap:wrap;border-bottom:1px solid var(--g200);}
+.stat{flex:1;min-width:110px;max-width:180px;text-align:center;padding:20px 12px;border-right:1px solid var(--g200);}
+.stat:last-child{border-right:none;}
+.stat-n{font-family:'Syne',sans-serif;font-size:28px;color:var(--blue);line-height:1;}
+.stat-l{font-size:11px;font-weight:600;color:var(--g600);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
+
+/* ── SECTION ── */
+.section{max-width:1240px;margin:0 auto;padding:0 24px;}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;padding:44px 0 20px;}
+.sec-title{font-family:'Syne',sans-serif;font-size:26px;color:var(--text);}
+.sec-title span{color:var(--red);}
+.sec-link{color:var(--blue);font-size:13px;font-weight:700;text-decoration:none;border-bottom:2px solid var(--blue);padding-bottom:1px;}
+
+/* ── CAROUSEL ── */
+.car-wrap{position:relative;padding:0 24px;max-width:1240px;margin:0 auto;}
+.carousel{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:6px;}
+.carousel::-webkit-scrollbar{display:none;}
+.scroll-arrow{position:absolute;top:50%;transform:translateY(-50%);background:var(--white);border:1px solid var(--g200);cursor:pointer;width:40px;height:40px;border-radius:50%;font-size:17px;color:var(--blue);display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:var(--sh);transition:background .18s,transform .18s;}
+.scroll-arrow:hover{background:var(--blue);color:#fff;transform:translateY(-50%) scale(1.08);}
+.scroll-arrow.l{left:0;}.scroll-arrow.r{right:0;}
+
+/* ── CARD ── */
+.card{scroll-snap-align:start;flex:0 0 270px;background:var(--white);border-radius:var(--r);border:1px solid var(--g200);overflow:hidden;cursor:pointer;transition:transform .22s,box-shadow .22s;position:relative;}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,51,160,.16);}
+.card-ribbon{position:absolute;top:12px;left:12px;z-index:2;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.8px;padding:4px 11px;border-radius:20px;text-transform:uppercase;}
+.card-year-badge{position:absolute;top:12px;right:12px;z-index:2;background:var(--blue);color:#fff;font-size:10px;font-weight:800;padding:4px 10px;border-radius:20px;}
+.card-img{width:100%;height:175px;object-fit:contain;display:block;background:var(--g100);padding:8px;}
+.card-img-ph{width:100%;height:175px;background:linear-gradient(135deg,var(--g100),var(--g200));display:flex;align-items:center;justify-content:center;font-size:52px;}
+.card-body{padding:15px 16px 18px;}
+.card-brand{font-size:10px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:1px;}
+.card-name{font-family:'Syne',sans-serif;font-size:17px;color:var(--text);margin:3px 0 8px;line-height:1.2;}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.chip{background:var(--g100);color:var(--g600);font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;}
+.prices-row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:12px;}
+.price-block{flex:1;}
+.price-year{font-size:9px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;}
+.price-val{font-family:'Syne',sans-serif;font-size:15px;color:var(--blue);font-weight:700;line-height:1;}
+.price-val.red{color:var(--red);}
+.card-cta{width:100%;background:var(--g100);color:var(--text);font-size:13px;font-weight:700;padding:10px;border-radius:10px;border:none;cursor:pointer;transition:background .18s,color .18s;}
+.card-cta:hover{background:var(--blue);color:#fff;}
+
+/* ── GRID ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:20px;padding-bottom:56px;}
+.filters{display:flex;gap:8px;flex-wrap:wrap;padding:0 0 22px;}
+.filter{background:var(--white);color:var(--g600);font-size:12.5px;font-weight:700;padding:8px 18px;border-radius:20px;border:1.5px solid var(--g200);cursor:pointer;transition:all .18s;}
+.filter.on,.filter:hover{background:var(--blue);color:#fff;border-color:var(--blue);}
+
+/* ── PROMO ── */
+.promo{max-width:1240px;margin:8px auto 0;padding:0 24px;}
+.promo-inner{background:linear-gradient(90deg,var(--blue) 0%,#445a83 100%);border-radius:20px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;box-shadow:0 8px 32px rgba(0,51,160,.25);}
+.promo-inner h2{font-family:'Syne',sans-serif;font-size:24px;color:#fff;}
+.promo-inner p{color:rgba(255,255,255,.75);font-size:13px;font-weight:500;margin-top:4px;}
+.promo-btn{background:#fff;color:var(--blue);font-size:14px;font-weight:800;padding:13px 26px;border-radius:12px;border:none;cursor:pointer;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.12);transition:transform .18s;white-space:nowrap;}
+.promo-btn:hover{transform:translateY(-2px);}
+
+/* ── INVERSION ── */
+.inv-section{max-width:1240px;margin:0 auto;padding:0 24px 56px;}
+.inv-card{background:linear-gradient(135deg,#0a1f5c 0%,#1a3a8f 100%);border-radius:20px;padding:36px 36px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;box-shadow:0 12px 48px rgba(0,51,160,.25);}
+.inv-text h2{font-family:'Syne',sans-serif;font-size:28px;color:#fff;margin-bottom:12px;}
+.inv-text p{color:rgba(255,255,255,.75);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.inv-features{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.inv-feat{display:flex;align-items:center;gap:10px;color:#fff;font-size:13.5px;font-weight:600;}
+.inv-feat-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;flex-shrink:0;}
+.inv-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-size:14px;font-weight:800;padding:14px 28px;border-radius:12px;border:none;cursor:pointer;text-decoration:none;box-shadow:0 4px 18px rgba(227,30,38,.4);transition:transform .18s,box-shadow .18s;}
+.inv-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(227,30,38,.5);}
+.inv-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.inv-stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:20px;text-align:center;}
+.inv-stat-n{font-family:'Syne',sans-serif;font-size:30px;color:#FFD700;line-height:1;}
+.inv-stat-l{color:rgba(255,255,255,.7);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
+
+/* ── INFO ── */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-bottom:60px;}
+.info-card{background:var(--white);border:1px solid var(--g200);border-radius:var(--r);padding:28px 26px;box-shadow:0 1px 4px rgba(0,51,160,.06);}
+.info-card h3{font-family:'Syne',sans-serif;font-size:18px;color:var(--text);margin-bottom:12px;}
+.info-card p{font-size:13.5px;color:var(--g600);line-height:1.85;}
+.info-card .hl{color:var(--red);font-weight:700;}
+
+/* ── MODAL ── */
+.overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px;}
+.overlay.open{display:flex;}
+.modal{background:var(--white);border-radius:24px;max-width:500px;width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,.3);animation:pop .3s cubic-bezier(.175,.885,.32,1.275);position:relative;}
+@keyframes pop{from{opacity:0;transform:scale(.86) translateY(24px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-img{width:100%;height:220px;object-fit:contain;background:var(--g100);border-radius:24px 24px 0 0;padding:12px;}
+.modal-img-ph{width:100%;height:220px;background:linear-gradient(135deg,var(--g100),var(--g200));border-radius:24px 24px 0 0;display:flex;align-items:center;justify-content:center;font-size:90px;}
+.modal-body{padding:24px 26px 28px;}
+.modal-brand{font-size:11px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:1.2px;}
+.modal-name{font-family:'Syne',sans-serif;font-size:24px;color:var(--text);margin:4px 0 6px;}
+.modal-prices{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;padding:14px;background:var(--g100);border-radius:12px;}
+.modal-price-blk{flex:1;text-align:center;}
+.modal-price-yr{font-size:10px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.5px;}
+.modal-price-v{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--blue);}
+.modal-price-v.red{color:var(--red);}
+.modal-specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+.m-spec{background:var(--g100);border-radius:12px;padding:12px 14px;}
+.m-spec-l{font-size:10px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.5px;}
+.m-spec-v{font-size:14px;font-weight:700;color:var(--text);margin-top:3px;}
+.modal-desc{font-size:13.5px;color:var(--g600);line-height:1.75;margin-bottom:20px;}
+.wa-btn{width:100%;background:#25D366;color:#fff;font-size:15px;font-weight:800;padding:16px;border-radius:14px;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(37,211,102,.35);display:flex;align-items:center;justify-content:center;gap:10px;transition:transform .18s,box-shadow .18s;}
+.wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.45);}
+.modal-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.92);border:none;cursor:pointer;width:36px;height:36px;border-radius:50%;font-size:16px;font-weight:700;color:var(--text);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.14);z-index:10;transition:background .18s;}
+.modal-close:hover{background:#fff;}
+
+/* ── FOOTER ── */
+footer{background:var(--blue);padding:44px 24px 28px;}
+.footer-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px;}
+.footer-logo{display:block;height:34px;filter:brightness(0) invert(1);margin-bottom:14px;}
+.footer-inner p{font-size:12.5px;color:rgba(255,255,255,.65);line-height:1.8;}
+.footer-inner h4{color:#fff;font-size:13px;font-weight:700;margin-bottom:12px;}
+.footer-inner ul{list-style:none;}
+.footer-inner ul li{margin-bottom:7px;}
+.footer-inner ul li a{color:rgba(255,255,255,.6);font-size:12.5px;text-decoration:none;transition:color .18s;}
+.footer-inner ul li a:hover{color:#fff;}
+.footer-bottom{max-width:1240px;margin:28px auto 0;border-top:1px solid rgba(255,255,255,.12);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-bottom span{font-size:11.5px;color:rgba(255,255,255,.45);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--white);flex-direction:column;padding:12px 20px 16px;gap:2px;border-bottom:1px solid var(--g200);}
+  .nav-links.open{display:flex;}
+  .hamburger{display:flex;}
+  .info-grid{grid-template-columns:1fr;}
+  .inv-card{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr;gap:22px;}
+  .card{flex:0 0 230px;}
+  .section{padding:0 16px;}
+  .car-wrap{padding:0 16px;}
+  .popup-box img{max-height:60vh;}
+}
+@media(max-width:480px){
+  .grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .card{flex:0 0 200px;}
+  .card-img{height:140px;}
+  nav{padding:0 16px;}
+  .inv-stats{grid-template-columns:1fr 1fr;}
+}
 </style>
 </head>
-<body>
+<body data-theme="light">
 
-<!-- NAVBAR -->
-<nav id="navbar">
+<!-- POPUP ANUNCIO -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <div class="popup-bar"></div>
+    <img src="ANUNCIO_PLACEHOLDER" alt="Oferta Especial Autohand" id="popupImg">
+    <div class="popup-timer">Se cerrará en <span id="countdown">10</span> segundos</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
   <a href="#" class="nav-logo">
-    <div>
-      <div class="nav-logo-badge">
-        <div class="nav-logo-img" ><img style="width: auto; height: 40px; margin-top: 6px;" src="./img1.png" alt=""></div>
-      </div>
-    </div>
-    <div>
-      <div class="nav-logo-img">Autos Suzuki</div>
-      <div class="nav-logo-sub">Paloquemado · Bogotá</div>
-    </div>
+    <img src="img1.png" alt="HOLA" id="navLogo" style="width: 100px;">
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#inicio">Inicio</a></li>
     <li><a href="#vehiculos">Vehículos</a></li>
+    <li><a href="#inversion">Inversión</a></li>
     <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="https://wa.me/573204820502?text=Hola+Handy!+Quisiera+información+sobre+los+vehículos." target="_blank" class="nav-cta">WhatsApp</a></li>
   </ul>
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
+  <div class="nav-right">
+    <button class="theme-btn" id="themeBtn" title="Cambiar tema">🌙</button>
+    <a href="https://wa.me/573204820502?text=Hola+Handy!+Quisiera+información+sobre+un+vehículo+Suzuki." target="_blank" class="nav-wa">WhatsApp</a>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="inicio">
- 
-  <div class="handy-tag">
-    
-    <div class="handy-dot"></div>
-    
-    Handy te atiende ahora
-  </div> 
-
-  <div class="hero-badge">Consultora Oficial de Susuki</div>
-  <h1>MANEJA TU<br><span>SUEÑO</span></h1>
-  <p>Asesoría personalizada para tu próximo vehículo 🚗
-Información clara, acompañamiento total y las mejores opciones para ti</p>
+  <div class="hero-pill"><div class="hero-dot"></div>Handy te atiende ahora</div>
+  <h1>Tu próximo <em>Suzuki</em><br>te espera aquí</h1>
+  <p>Concesionario Suzuki en Paloquemado, Bogotá. Modelos 2026 y 2027, financiación flexible y atención personalizada con Handy.</p>
   <div class="hero-btns">
-    <a href="#vehiculos" class="btn-primary">Ver Vehículos</a>
-    <a href="https://wa.me/573204820502?text=Hola+Handy!+Quisiera+asesoría+sobre+un+vehículo+Suzuki." target="_blank" class="btn-outline">Hablar con Handy</a>
+    <a href="#vehiculos" class="btn-white">Ver Vehículos 2026–2027</a>
+    <a href="https://wa.me/573204820502?text=Hola+Handy!+Quisiera+asesoría+sobre+un+vehículo+Suzuki." target="_blank" class="btn-ghost">Hablar con Handy</a>
   </div>
 </section>
 
 <!-- STATS -->
-<div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">+80</div><div class="stat-label">Vehículos</div></div>
-  <div class="stat-item"><div class="stat-num">+500</div><div class="stat-label">Clientes felices</div></div>
-  <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Garantía</div></div>
-  <div class="stat-item"><div class="stat-num">0%</div><div class="stat-label">Inicial desde</div></div>
+<div class="stats">
+  <div class="stat"><div class="stat-n">8</div><div class="stat-l">Modelos</div></div>
+  <div class="stat"><div class="stat-n">2026/27</div><div class="stat-l">Año modelo</div></div>
+  <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Garantía</div></div>
+  <div class="stat"><div class="stat-n">0%</div><div class="stat-l">Inicial desde</div></div>
 </div>
 
-<!-- PROMO BANNER -->
-<div class="promo-banner" style="margin-top:32px;">
-  <div>
-    <h2>¡Financia tu Suzuki hoy!</h2>
-    <p>Cuotas desde $890.000/mes · Aprobación en 24 horas · Sin codeudor</p>
+<!-- PROMO -->
+<div class="promo" style="margin-top:36px;">
+  <div class="promo-inner">
+    <div>
+      <h2>¡Financia tu Suzuki hoy!</h2>
+      <p>Cuotas desde $890.000/mes · Aprobación en 24 horas · Sin codeudor</p>
+    </div>
+    <a href="https://wa.me/573204820502?text=Hola+Handy!+Quiero+información+sobre+financiación+de+un+Suzuki." target="_blank" class="promo-btn">Consultar ahora</a>
   </div>
-  <a href="https://wa.me/573204820502?text=Hola+Handy!+Quiero+información+sobre+financiación+de+vehículos+Suzuki." target="_blank" class="promo-wa">
-    Consultar ahora
-  </a>
 </div>
 
 <!-- CAROUSEL -->
-<div class="section-title-row" style="margin-top:40px;">
-  <div class="section-title">Destacados <span>del Mes</span></div>
-  <a href="#vehiculos" class="see-all">Ver todos →</a>
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-title">Destacados <span>del Mes</span></div>
+    <a href="#vehiculos" class="sec-link">Ver todos →</a>
+  </div>
 </div>
-<div class="carousel-wrap">
-  <button class="scroll-btn left" onclick="scrollCarousel(-1)">&#8592;</button>
-  <div class="carousel" id="mainCarousel"></div>
-  <button class="scroll-btn right" onclick="scrollCarousel(1)">&#8594;</button>
+<div class="car-wrap">
+  <button class="scroll-arrow l" onclick="slide(-1)">&#8592;</button>
+  <div class="carousel" id="carousel"></div>
+  <button class="scroll-arrow r" onclick="slide(1)">&#8594;</button>
 </div>
 
-<!-- VEHICLES GRID -->
-<div class="vehicles-section" id="vehiculos">
-  <div class="section-title">Todos los <span style="color:var(--red)">Vehículos</span></div>
-  <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterVehicles('all', this)">Todos</button>
-    <button class="filter-btn" onclick="filterVehicles('suv', this)">SUV</button>
-    <button class="filter-btn" onclick="filterVehicles('sedan', this)">Sedán</button>
-    <button class="filter-btn" onclick="filterVehicles('hatchback', this)">Hatchback</button>
-    <button class="filter-btn" onclick="filterVehicles('pickup', this)">Pickup</button>
+<!-- GRID -->
+<div class="section" id="vehiculos">
+  <div class="sec-head"><div class="sec-title">Todos los <span>Vehículos</span></div></div>
+  <div class="filters">
+    <button class="filter on" onclick="filt('all',this)">Todos</button>
+    <button class="filter" onclick="filt('suv',this)">SUV / 4×2</button>
+    <button class="filter" onclick="filt('hatchback',this)">Hatchback</button>
+    <button class="filter" onclick="filt('mt',this)">Manual</button>
+    <button class="filter" onclick="filt('at',this)">Automático</button>
+    <button class="filter" onclick="filt('2026',this)">2026</button>
+    <button class="filter" onclick="filt('2027',this)">2027</button>
   </div>
-  <div class="grid" id="vehiclesGrid"></div>
+  <div class="grid" id="grid"></div>
 </div>
 
-<!-- INFO SECTION -->
-<div class="info-section" id="nosotros">
-  <div class="info-card">
-    <div class="info-card-title">¿Dónde Encontrarnos?</div>
-    <p>
-      Estamos ubicados en <span class="highlight">Paloquemado, Bogotá</span>, uno de los sectores automotrices más importantes de la ciudad.<br><br>
-      Atención: <span class="highlight">Lunes – Sábado · 8:00am – 6:00pm</span><br>
-      WhatsApp: <span class="highlight">320 482 0502</span><br><br>
-      Tu asesora personal <span class="highlight">Handy</span> te atenderá con toda la información que necesitas para tomar la mejor decisión.
-    </p>
+<!-- INVERSIÓN -->
+<div class="section" id="inversion" style="padding-top:0;">
+  <div class="sec-head"><div class="sec-title">¿Por qué <span>Invertir</span> en Suzuki?</div></div>
+</div>
+<div class="inv-section">
+  <div class="inv-card">
+    <div class="inv-text">
+      <h2>Tu Suzuki, tu mejor inversión</h2>
+      <p>Un vehículo Suzuki no es solo un medio de transporte — es una inversión inteligente que mantiene su valor, reduce costos operativos y te da la libertad que mereces.</p>
+      <div class="inv-features">
+        <div class="inv-feat"><div class="inv-feat-dot"></div>Alta valorización al reventa vs. competidores</div>
+        <div class="inv-feat"><div class="inv-feat-dot"></div>Bajo consumo de combustible = más ahorro</div>
+        <div class="inv-feat"><div class="inv-feat-dot"></div>Repuestos originales accesibles en todo Colombia</div>
+        <div class="inv-feat"><div class="inv-feat-dot"></div>Garantía de fábrica en todos los modelos</div>
+        <div class="inv-feat"><div class="inv-feat-dot"></div>Tecnología híbrida disponible — ahorra desde el día 1</div>
+        <div class="inv-feat"><div class="inv-feat-dot"></div>Financiación con cuotas desde $890.000/mes</div>
+      </div>
+      <a href="https://wa.me/573204820502?text=Hola+Handy!+Quiero+información+sobre+inversión+en+un+Suzuki." target="_blank" class="inv-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Asesoría de Inversión con Handy
+      </a>
+    </div>
+    <div class="inv-stats">
+      <div class="inv-stat"><div class="inv-stat-n">+10</div><div class="inv-stat-l">Años de experiencia</div></div>
+      <div class="inv-stat"><div class="inv-stat-n">+500</div><div class="inv-stat-l">Clientes felices</div></div>
+      <div class="inv-stat"><div class="inv-stat-n">35%</div><div class="inv-stat-l">Ahorro combustible</div></div>
+      <div class="inv-stat"><div class="inv-stat-n">#1</div><div class="inv-stat-l">Suzuki en Paloquemado</div></div>
+    </div>
   </div>
-  <div class="info-card">
-    <div class="info-card-title">¿Por qué Elegirnos?</div>
-    <p>
-      ✔ <span class="highlight">Financiación flexible</span> desde 0% de inicial<br>
-      ✔ <span class="highlight">Garantía</span> de fábrica en todos los vehículos<br>
-      ✔ <span class="highlight">Repuestos originales</span> Suzuki disponibles<br>
-      ✔ <span class="highlight">Trámites incluidos</span> sin costo adicional<br>
-      ✔ Más de <span class="highlight">10 años</span> de experiencia en el sector<br>
-      ✔ Asesoría personalizada con <span class="highlight">Handy</span>
-    </p>
+</div>
+
+<!-- INFO -->
+<div class="section" id="nosotros">
+  <div class="sec-head"><div class="sec-title">¿Por qué <span>Autohand?</span></div></div>
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>Encuéntranos en Paloquemado</h3>
+      <p>Ubicados en el corazón automotriz de Bogotá — <span class="hl">Paloquemado</span>.<br><br>
+      📍 <span class="hl">Paloquemado, Bogotá</span><br>
+      🕐 Lun–Sáb &nbsp;<span class="hl">8:00 am – 6:00 pm</span><br>
+      📱 WhatsApp <span class="hl">320 482 0502</span><br><br>
+      Tu asesora <span class="hl">Handy</span> te guía en cada paso.</p>
+    </div>
+    <div class="info-card">
+      <h3>Beneficios exclusivos</h3>
+      <p>
+      ✅ <span class="hl">Financiación flexible</span> desde 0% inicial<br>
+      ✅ <span class="hl">Garantía de fábrica</span> en todos los modelos<br>
+      ✅ <span class="hl">Modelos 2026 y 2027</span> disponibles<br>
+      ✅ <span class="hl">Trámites incluidos</span> sin costos extra<br>
+      ✅ Tecnología <span class="hl">Híbrida</span> disponible<br>
+      ✅ Atención personalizada con <span class="hl">Handy</span>
+      </p>
+    </div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="nav-logo-badge">
-        <div class="nav-logo-img" ><img style="width: auto; height: 40px; margin-top: 6px;" src="./img1.png" alt=""></div> 
-
-      </div>
-      <p style="margin-top:12px;">Consultora Oficial de Suzuki en Paloquemado, Bogotá. Vehículos nuevos y seminuevos con la mejor financiación y atención personalizada.</p>
+    <div>
+      <img src="LOGO_PLACEHOLDER" alt="Autohand" class="footer-logo" id="footerLogo">
+      <p>Concesionario Suzuki en Paloquemado, Bogotá. Vehículos nuevos 2026 y 2027 con la mejor financiación y atención personalizada de Handy.</p>
     </div>
-    <div class="footer-col">
+    <div>
       <h4>Vehículos</h4>
       <ul>
-        <li><a href="#">Suzuki Swift</a></li>
-        <li><a href="#">Suzuki Vitara</a></li>
-        <li><a href="#">Suzuki Jimny</a></li>
-        <li><a href="#">Suzuki Dzire</a></li>
-        <li><a href="#">Suzuki S-Presso</a></li>
+        <li><a href="#">New Swift HB GLX AT</a></li>
+        <li><a href="#">Fronx HB 4×2 GLX MT</a></li>
+        <li><a href="#">Fronx HB 4×2 GLX AT</a></li>
+        <li><a href="#">Jimny 5P GLX MT</a></li>
+        <li><a href="#">Jimny 5P GLX AT</a></li>
+        <li><a href="#">New S-Cross GLX</a></li>
+        <li><a href="#">New Jimny GL AT ADAS</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div>
       <h4>Contacto</h4>
       <ul>
         <li><a href="https://wa.me/573204820502" target="_blank">WhatsApp: 320 482 0502</a></li>
         <li><a href="#">Paloquemado, Bogotá</a></li>
-        <li><a href="#">Lun–Sáb: 8am–6pm</a></li>
+        <li><a href="#">Lun–Sáb: 8am – 6pm</a></li>
         <li><a href="#">Asesora: Handy</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 HandCar Suzuki · Paloquemado, Bogotá</span>
-    <span>Todos los precios incluyen IVA · Sujeto a disponibilidad</span>
+    <span>© 2024 Autohand Suzuki · Paloquemado, Bogotá</span>
+    <span>Precios sujetos a disponibilidad</span>
   </div>
 </footer>
 
 <!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-  <div class="modal-wrapper">
-    <div class="modal" id="modal">
-      <button class="modal-close" onclick="closeModalBtn()">✕</button>
-      <div id="modalContent"></div>
-    </div>
+<div class="overlay" id="overlay" onclick="closeMO(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeM()">✕</button>
+    <div id="mContent"></div>
   </div>
 </div>
 
 <script>
-const PHONE = '573204820502';
+const WA = '573204820502';
+const LOGO_B64 = 'LOGO_B64_TOKEN';
+const ANUNCIO_B64 = 'ANUNCIO_B64_TOKEN';
 
-const vehicles = [
-  {
-    id: 1, name: 'Swift', brand: 'Suzuki',
-    category: 'hatchback',
-    price: '$62.990.000',
-    badge: 'Más vendido',
-    img: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&q=80',
-    year: '2024', engine: '1.2L', transmission: 'CVT', fuel: 'Gasolina', seats: '5',
-    desc: 'El Suzuki Swift es el compañero ideal para la ciudad. Económico, ágil y con tecnología de última generación. Perfecto para movilizarte en Bogotá con estilo y eficiencia.'
-  },
-  {
-    id: 2, name: 'Vitara', brand: 'Suzuki',
-    category: 'suv',
-    price: '$108.990.000',
-    badge: 'Nuevo',
-    img: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80',
-    year: '2024', engine: '1.4T', transmission: 'Automático', fuel: 'Gasolina', seats: '5',
-    desc: 'La Suzuki Vitara combina diseño europeo con capacidad todoterreno. Turbo de alto rendimiento, tracción 4WD y un interior premium que deleita a cada kilómetro.'
-  },
-  {
-    id: 3, name: 'Jimny', brand: 'Suzuki',
-    category: 'suv',
-    price: '$134.500.000',
-    badge: 'Edición especial',
-    img: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80',
-    year: '2024', engine: '1.5L', transmission: 'Manual 5V', fuel: 'Gasolina', seats: '4',
-    desc: 'El legendario Jimny vuelve con todo. Diseño retro, capacidad 4x4 profesional y construcción robusta para los que buscan aventura sin límites.'
-  },
-  {
-    id: 4, name: 'Dzire', brand: 'Suzuki',
-    category: 'sedan',
-    price: '$74.990.000',
-    badge: 'Popular',
-    img: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&q=80',
-    year: '2024', engine: '1.2L', transmission: 'AGS', fuel: 'Gasolina', seats: '5',
-    desc: 'El Suzuki Dzire es el sedán más inteligente del mercado. Bajo consumo de combustible, amplio maletero y tecnología moderna para el conductor exigente.'
-  },
-  {
-    id: 5, name: 'S-Presso', brand: 'Suzuki',
-    category: 'hatchback',
-    price: '$49.990.000',
-    badge: 'Mejor precio',
-    img: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80',
-    year: '2024', engine: '1.0L', transmission: 'Manual 5V', fuel: 'Gasolina', seats: '5',
-    desc: 'El S-Presso tiene estilo SUV en un formato compacto. Ideal para jóvenes y urbanos que quieren diferenciarse sin sacrificar economía ni funcionalidad.'
-  },
-  {
-    id: 6, name: 'Ertiga', brand: 'Suzuki',
-    category: 'sedan',
-    price: '$97.500.000',
-    badge: 'Familiar',
-    img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80',
-    year: '2024', engine: '1.5L', transmission: 'Automático', fuel: 'Gasolina', seats: '7',
-    desc: 'La Ertiga es la miniván familiar de Suzuki. Con 7 puestos, amplio espacio de carga y bajo consumo, es perfecta para toda la familia en cada aventura.'
-  },
-  {
-    id: 7, name: 'Grand Vitara', brand: 'Suzuki',
-    category: 'suv',
-    price: '$145.000.000',
-    badge: 'Premium',
-    img: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80',
-    year: '2024', engine: '2.4L', transmission: 'Automático', fuel: 'Gasolina', seats: '5',
-    desc: 'La Grand Vitara combina lujo, potencia y versatilidad todoterreno. El SUV de referencia de Suzuki con las mejores especificaciones del segmento.'
-  },
-  {
-    id: 8, name: 'Carry', brand: 'Suzuki',
-    category: 'pickup',
-    price: '$56.500.000',
-    badge: 'Trabajo duro',
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
-    year: '2024', engine: '1.5L', transmission: 'Manual 5V', fuel: 'Gasolina', seats: '2',
-    desc: 'La Suzuki Carry es la pick-up de trabajo más confiable. Ideal para transporte de carga liviana, con bajo costo de mantenimiento y gran durabilidad.'
-  }
-];
+// Set images
+document.getElementById('navLogo').src = './img1.png'; 
+document.getElementById('footerLogo').src = './img1.png'; 
+document.getElementById('popupImg').src = './img3.png';
 
-// Render carousel
-function renderCarousel() {
-  const carousel = document.getElementById('mainCarousel');
-  const featured = vehicles.slice(0, 6);
-  carousel.innerHTML = featured.map(v => `
-    <div class="car-card" onclick="openModal(${v.id})">
-      <div class="car-card-badge">${v.badge}</div>
-      <img src="${v.img}" alt="${v.name}" class="car-card-img" onerror="this.parentNode.innerHTML='<div class=\\'car-card-img-placeholder\\'>🚗</div>'">
-      <div class="car-card-body">
-        <div class="car-card-brand">${v.brand}</div>
-        <div class="car-card-name">${v.name}</div>
-        <div class="car-card-specs">
-          <span class="spec-chip">${v.year}</span>
-          <span class="spec-chip">${v.engine}</span>
-          <span class="spec-chip">${v.transmission}</span>
-        </div>
-        <div class="car-card-price">${v.price} <span>COP</span></div>
-        <button class="car-card-btn" onclick="event.stopPropagation();openModal(${v.id})">Ver detalles</button>
-      </div>
-    </div>
-  `).join('');
+// POPUP TIMER
+let sec = 10;
+const cd = document.getElementById('countdown');
+const timer = setInterval(() => {
+  sec--;
+  if(cd) cd.textContent = sec;
+  if(sec <= 0){ clearInterval(timer); closePopup(); }
+}, 1000);
+function closePopup(){
+  const p = document.getElementById('popupOverlay');
+  if(p){ p.style.opacity='0'; p.style.transition='opacity .4s'; setTimeout(()=>p.remove(),400); }
+  clearInterval(timer);
 }
 
-// Render grid
-function renderGrid(filter = 'all') {
-  const grid = document.getElementById('vehiclesGrid');
-  const list = filter === 'all' ? vehicles : vehicles.filter(v => v.category === filter);
-  grid.innerHTML = list.map(v => `
-    <div class="car-card" onclick="openModal(${v.id})" data-cat="${v.category}">
-      <div class="car-card-badge">${v.badge}</div>
-      <img src="${v.img}" alt="${v.name}" class="car-card-img" onerror="this.parentNode.innerHTML='<div class=\\'car-card-img-placeholder\\'>🚗</div>'">
-      <div class="car-card-body">
-        <div class="car-card-brand">${v.brand}</div>
-        <div class="car-card-name">${v.name}</div>
-        <div class="car-card-specs">
-          <span class="spec-chip">${v.year}</span>
-          <span class="spec-chip">${v.engine}</span>
-          <span class="spec-chip">${v.transmission}</span>
-        </div>
-        <div class="car-card-price">${v.price} <span>COP</span></div>
-        <button class="car-card-btn" onclick="event.stopPropagation();openModal(${v.id})">Ver detalles</button>
-      </div>
-    </div>
-  `).join('');
-}
-
-function filterVehicles(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderGrid(cat);
-}
-
-// Modal
-function openModal(id) {
-  const v = vehicles.find(x => x.id === id);
-  if (!v) return;
-  const msg = encodeURIComponent(`Hola Handy quisiera más asesoría sobre el vehículo ${v.brand} ${v.name}`);
-  document.getElementById('modalContent').innerHTML = `
-    <img src="${v.img}" alt="${v.name}" class="modal-img" onerror="this.style.display='none'">
-    <div class="modal-body">
-      <div class="modal-brand">${v.brand} · ${v.year}</div>
-      <div class="modal-name">${v.name}</div>
-      <div class="modal-price">${v.price} COP</div>
-      <div class="modal-specs-grid">
-        <div class="modal-spec"><div class="modal-spec-label">Motor</div><div class="modal-spec-val">${v.engine}</div></div>
-        <div class="modal-spec"><div class="modal-spec-label">Transmisión</div><div class="modal-spec-val">${v.transmission}</div></div>
-        <div class="modal-spec"><div class="modal-spec-label">Combustible</div><div class="modal-spec-val">${v.fuel}</div></div>
-        <div class="modal-spec"><div class="modal-spec-label">Puestos</div><div class="modal-spec-val">${v.seats}</div></div>
-      </div>
-      <p class="modal-desc">${v.desc}</p>
-      <button class="modal-wa-btn" onclick="goWhatsApp(${v.id})">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Consultar con Handy
-      </button>
-    </div>
-  `;
-  document.getElementById('modalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  // Auto redirect after 1.2s
-  setTimeout(() => { goWhatsApp(id); }, 12000);
-}
-
-function goWhatsApp(id) {
-  const v = vehicles.find(x => x.id === id);
-  if (!v) return;
-  const msg = encodeURIComponent(`Hola Handy quisiera más asesoría sobre el vehículo ${v.brand} ${v.name}`);
-  window.open(`https://wa.me/${PHONE}?text=${msg}`, '_blank');
-}
-
-function closeModal(e) {
-  if (e.target === document.getElementById('modalOverlay')) closeModalBtn();
-}
-function closeModalBtn() {
-  document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function scrollCarousel(dir) {
-  const c = document.getElementById('mainCarousel');
-  c.scrollBy({ left: dir * 280, behavior: 'smooth' });
-}
+// Theme
+let dark = false;
+document.getElementById('themeBtn').addEventListener('click', () => {
+  dark = !dark;
+  document.body.setAttribute('data-theme', dark ? 'dark' : 'light');
+  document.getElementById('themeBtn').textContent = dark ? '☀️' : '🌙';
+});
 
 // Hamburger
-document.getElementById('hamburger').addEventListener('click', () => {
+document.getElementById('ham').addEventListener('click', () => {
   document.getElementById('navLinks').classList.toggle('open');
 });
 
-// Init
+// VEHICLES DATA
+const cars = [
+  {
+    id:1, name:'New Swift HB GLX AT', brand:'Suzuki',
+    cat:['hatchback','at'],
+    p26:'$86.990.000', p27:'$90.990.000',
+    badge:'Híbrido', year:'2026/27',
+    imgs:[
+      'https://suzukiderco.vteximg.com.br/arquivos/ids/156808-1600-500/swift-hibrido-glx-rojo.png?v=638666083198530000',
+      'https://suzukiderco.vteximg.com.br/arquivos/ids/156807-1600-500/swift-hibrido-glx-gris.png?v=638666082469700000'
+    ],
+    spec_img:'https://suzukiderco.vteximg.com.br/arquivos/ids/156808-1600-500/swift-hibrido-glx-rojo.png?v=638666083198530000',
+    trans:'Automático CVT', fuel:'Híbrido', seats:'5', engine:'1.2L HEV',
+    desc:'El New Swift Híbrido GLX AT combina elegancia, tecnología híbrida y eficiencia. Perfectamente diseñado para el dinámico entorno urbano de Bogotá. Motor 1.2L híbrido con transmisión automática CVT.'
+  },
+  {
+    id:2, name:'Fronx HB 4×2 GLX MT', brand:'Suzuki',
+    cat:['hatchback','suv','mt'],
+    p26:null, p27:'$96.990.000',
+    badge:'Nuevo 2027', year:'2027',
+    imgs:['https://www.suzuki.com.pe/media/rbpmtqi1/suzuki_pe_pdp_nuevo_fronx_hibrido_version_isg_gl_mt_azul_perlado.webp'],
+    trans:'Manual 5V', fuel:'Gasolina', seats:'5', engine:'1.5L',
+    desc:'El Fronx HB 4×2 GLX MT llega con diseño crossover moderno y tracción delantera. Ideal para quienes buscan estilo y versatilidad con transmisión manual.'
+  },
+  {
+    id:3, name:'Fronx HB 4×2 GLX AT', brand:'Suzuki',
+    cat:['hatchback','suv','at'],
+    p26:'$99.990.000', p27:'$103.990.000',
+    badge:'Crossover', year:'2026/27',
+    imgs:['https://www.suzukiautos.com.co/arquivos/suzuki-fronx-plata.png?v=638343626812400000'],
+    trans:'Automático', fuel:'Gasolina', seats:'5', engine:'1.5L',
+    desc:'El Fronx HB 4×2 GLX AT en versión automática. Diseño crossover elevado, interior premium y tecnología de última generación para la ciudad y más allá.'
+  },
+  {
+    id:4, name:'Jimny 5P GLX MT', brand:'Suzuki',
+    cat:['suv','mt'],
+    p26:'$119.990.000', p27:null,
+    badge:'4×4 Real', year:'2026',
+    imgs:['https://autozen.com.co/wp-content/uploads/2024/03/Autozen-suzuki-jimny-5-puertas-miniatura.webp'],
+    trans:'Manual 5V', fuel:'Gasolina', seats:'5', engine:'1.5L',
+    desc:'El legendario Jimny en versión 5 puertas y transmisión manual. Capacidad 4×4 real con bajo-rango, diseño icónico y resistencia comprobada para cualquier terreno.'
+  },
+  {
+    id:5, name:'Jimny 5P GLX AT', brand:'Suzuki',
+    cat:['suv','at'],
+    p26:'$123.990.000', p27:null,
+    badge:'Aventura', year:'2026',
+    imgs:['https://suzukiderco.vteximg.com.br/arquivos/ids/156961-1600-500/jimny-5p-gris.png?v=638701356203670000'],
+    trans:'Automático', fuel:'Gasolina', seats:'5', engine:'1.5L',
+    desc:'Jimny 5P en transmisión automática — la combinación perfecta de capacidad todoterreno 4×4 y confort de conducción. Ideal para aventuras sin límites en Colombia.'
+  },
+  {
+    id:6, name:'New S-Cross GLX HB 4×2 MT', brand:'Suzuki',
+    cat:['suv','mt'],
+    p26:null, p27:'$109.990.000',
+    badge:'Nuevo 2027', year:'2027',
+    imgs:['https://suzukiderco.vteximg.com.br/arquivos/ids/156203-520-292/Suzuki-S-CROSS-4X2-GLX-AT-Azul-2022-05-06.png?v=637874763206230000'],
+    trans:'Manual 5V', fuel:'Híbrido', seats:'5', engine:'1.4T HEV',
+    desc:'El New S-Cross GLX 4×2 MT: SUV híbrido turbocargado con diseño moderno y tecnología avanzada. Excelente rendimiento con bajo consumo de combustible.'
+  },
+  {
+    id:7, name:'New S-Cross GLX HB 4×2 AT', brand:'Suzuki',
+    cat:['suv','at'],
+    p26:null, p27:'$119.990.000',
+    badge:'Premium', year:'2027',
+    imgs:['https://suzukialcala.com/wp-content/uploads/2017/04/scross-hibrida-2025-min-876x535.png'],
+    trans:'Automático', fuel:'Híbrido', seats:'5', engine:'1.4T HEV',
+    desc:'La versión automática del New S-Cross GLX híbrido. SUV con turbo, tecnología mild-hybrid, interior premium y todas las comodidades que mereces.'
+  },
+  {
+    id:8, name:'New Jimny GL AT ADAS', brand:'Suzuki',
+    cat:['suv','at'],
+    p26:'$120.990.000', p27:null,
+    badge:'ADAS Tech', year:'2026',
+    imgs:['https://inchcapelatam.sirv.com/Suzuki/Chile/Jimny/1.5%20GLX%205P/suzuki-new-jimny-glx-gris-granito.png?w=720'],
+    trans:'Automático', fuel:'Gasolina', seats:'4', engine:'1.5L',
+    desc:'El New Jimny GL AT con tecnología ADAS (Advanced Driver Assistance Systems). Seguridad activa de última generación con frenado autónomo, control de crucero adaptativo y más.'
+  }
+];
+
+function priceHTML(c, inline=false) {
+  const parts = [];
+  if(c.p26) parts.push(`<div class="price-block"><div class="price-year">2026</div><div class="price-val">${c.p26}</div></div>`);
+  if(c.p27) parts.push(`<div class="price-block"><div class="price-year">2027</div><div class="price-val red">${c.p27}</div></div>`);
+  return parts.join('');
+}
+
+function cardHTML(c) {
+  return `<div class="card" onclick="openM(${c.id})">
+    <div class="card-ribbon">${c.badge}</div>
+    <div class="card-year-badge">${c.year}</div>
+    <img src="${c.imgs[0]}" alt="${c.name}" class="card-img" onerror="this.outerHTML='<div class=\\'card-img-ph\\'>🚗</div>'">
+    <div class="card-body">
+      <div class="card-brand">${c.brand}</div>
+      <div class="card-name">${c.name}</div>
+      <div class="chips"><span class="chip">${c.engine}</span><span class="chip">${c.trans}</span></div>
+      <div class="prices-row">${priceHTML(c)}</div>
+      <button class="card-cta" onclick="event.stopPropagation();openM(${c.id})">Ver detalles</button>
+    </div>
+  </div>`;
+}
+
+function renderCarousel() {
+  document.getElementById('carousel').innerHTML = cars.slice(0,6).map(c=>cardHTML(c)).join('');
+}
+
+function renderGrid(f='all') {
+  let list = cars;
+  if(f !== 'all') {
+    if(f === '2026') list = cars.filter(c => c.p26);
+    else if(f === '2027') list = cars.filter(c => c.p27);
+    else list = cars.filter(c => c.cat.includes(f));
+  }
+  document.getElementById('grid').innerHTML = list.map(c=>cardHTML(c)).join('');
+}
+
+function filt(f, btn) {
+  document.querySelectorAll('.filter').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderGrid(f);
+}
+
+function slide(d) {
+  document.getElementById('carousel').scrollBy({left: d*290, behavior:'smooth'});
+}
+
+function openM(id) {
+  const c = cars.find(x=>x.id===id);
+  const msg = encodeURIComponent(`Hola Handy quisiera más asesoría sobre el vehículo ${c.brand} ${c.name}`);
+  
+  let priceModalHTML = '';
+  if(c.p26 || c.p27) {
+    priceModalHTML = `<div class="modal-prices">`;
+    if(c.p26) priceModalHTML += `<div class="modal-price-blk"><div class="modal-price-yr">Precio 2026</div><div class="modal-price-v">${c.p26} COP</div></div>`;
+    if(c.p27) priceModalHTML += `<div class="modal-price-blk"><div class="modal-price-yr">Precio 2027</div><div class="modal-price-v red">${c.p27} COP</div></div>`;
+    priceModalHTML += `</div>`;
+  }
+
+  document.getElementById('mContent').innerHTML = `
+    <img src="${c.imgs[0]}" class="modal-img" alt="${c.name}" onerror="this.outerHTML='<div class=\\'modal-img-ph\\'>🚗</div>'">
+    <div class="modal-body">
+      <div class="modal-brand">${c.brand} · ${c.year}</div>
+      <div class="modal-name">${c.name}</div>
+      ${priceModalHTML}
+      <div class="modal-specs">
+        <div class="m-spec"><div class="m-spec-l">Motor</div><div class="m-spec-v">${c.engine}</div></div>
+        <div class="m-spec"><div class="m-spec-l">Transmisión</div><div class="m-spec-v">${c.trans}</div></div>
+        <div class="m-spec"><div class="m-spec-l">Combustible</div><div class="m-spec-v">${c.fuel}</div></div>
+        <div class="m-spec"><div class="m-spec-l">Puestos</div><div class="m-spec-v">${c.seats}</div></div>
+      </div>
+      <p class="modal-desc">${c.desc}</p>
+      <button class="wa-btn" onclick="window.open('https://wa.me/${WA}?text=${msg}','_blank')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar con Handy por WhatsApp
+      </button>
+    </div>`;
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeMO(e){ if(e.target===document.getElementById('overlay')) closeM(); }
+function closeM(){ document.getElementById('overlay').classList.remove('open'); document.body.style.overflow=''; }
+
 renderCarousel();
 renderGrid();
 </script>
